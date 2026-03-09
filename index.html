@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>五子棋</title>
+  <style>
+    :root { --bg: #f4eee2; --board: #deb887; --line: #6c5236; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 20% 20%, #fff8eb 0, var(--bg) 70%);
+      font-family: "PingFang SC", "Noto Sans SC", sans-serif;
+      color: #2c2419;
+    }
+    .app {
+      width: min(92vw, 620px);
+      padding: 16px;
+      border-radius: 16px;
+      background: #fff7ea;
+      box-shadow: 0 10px 30px rgba(70, 40, 10, 0.15);
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    #status { font-weight: 700; }
+    button {
+      border: 0;
+      border-radius: 10px;
+      background: #8b5a2b;
+      color: #fff;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    button:hover { filter: brightness(1.1); }
+    canvas {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: block;
+      border-radius: 10px;
+      background: var(--board);
+      border: 2px solid #b0834f;
+      touch-action: manipulation;
+    }
+    .tip { margin-top: 10px; font-size: 13px; opacity: .8; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="top">
+      <div id="status">黑棋先手</div>
+      <button id="reset">重新开始</button>
+    </div>
+    <canvas id="board" width="600" height="600"></canvas>
+    <div class="tip">规则：先连成 5 子（横/竖/斜）者获胜。</div>
+  </div>
+
+  <script>
+    const size = 15, cell = 40, pad = 20;
+    const canvas = document.getElementById('board');
+    const ctx = canvas.getContext('2d');
+    const statusEl = document.getElementById('status');
+    const resetBtn = document.getElementById('reset');
+
+    let board, current, over;
+
+    const init = () => {
+      board = Array.from({ length: size }, () => Array(size).fill(0));
+      current = 1; // 1:黑 2:白
+      over = false;
+      statusEl.textContent = '黑棋先手';
+      draw();
+    };
+
+    const drawGrid = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--line');
+      for (let i = 0; i < size; i++) {
+        const p = pad + i * cell;
+        ctx.beginPath(); ctx.moveTo(pad, p); ctx.lineTo(pad + cell * (size - 1), p); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(p, pad); ctx.lineTo(p, pad + cell * (size - 1)); ctx.stroke();
+      }
+      [[3,3],[3,11],[7,7],[11,3],[11,11]].forEach(([x,y]) => {
+        ctx.beginPath(); ctx.arc(pad + x*cell, pad + y*cell, 4, 0, Math.PI*2); ctx.fillStyle = '#4b351f'; ctx.fill();
+      });
+    };
+
+    const drawStone = (x, y, player) => {
+      const px = pad + x * cell, py = pad + y * cell;
+      const g = ctx.createRadialGradient(px - 6, py - 6, 3, px, py, 16);
+      if (player === 1) { g.addColorStop(0, '#666'); g.addColorStop(1, '#111'); }
+      else { g.addColorStop(0, '#fff'); g.addColorStop(1, '#d9d9d9'); }
+      ctx.beginPath(); ctx.arc(px, py, 16, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
+    };
+
+    const draw = () => {
+      drawGrid();
+      for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) {
+        if (board[y][x]) drawStone(x, y, board[y][x]);
+      }
+    };
+
+    const inRange = (x, y) => x >= 0 && y >= 0 && x < size && y < size;
+
+    const checkWin = (x, y, p) => {
+      const dirs = [[1,0],[0,1],[1,1],[1,-1]];
+      return dirs.some(([dx, dy]) => {
+        let n = 1;
+        for (const s of [1, -1]) {
+          let nx = x + dx*s, ny = y + dy*s;
+          while (inRange(nx, ny) && board[ny][nx] === p) { n++; nx += dx*s; ny += dy*s; }
+        }
+        return n >= 5;
+      });
+    };
+
+    const posFromEvent = (e) => {
+      const r = canvas.getBoundingClientRect();
+      const x = Math.round((e.clientX - r.left) * canvas.width / r.width - pad) / cell;
+      const y = Math.round((e.clientY - r.top) * canvas.height / r.height - pad) / cell;
+      return { x: Math.round(x), y: Math.round(y) };
+    };
+
+    canvas.addEventListener('click', (e) => {
+      if (over) return;
+      const { x, y } = posFromEvent(e);
+      if (!inRange(x, y) || board[y][x]) return;
+      board[y][x] = current;
+      draw();
+      if (checkWin(x, y, current)) {
+        over = true;
+        statusEl.textContent = `${current === 1 ? '黑棋' : '白棋'}获胜！`;
+        return;
+      }
+      current = current === 1 ? 2 : 1;
+      statusEl.textContent = `轮到${current === 1 ? '黑棋' : '白棋'}`;
+    });
+
+    resetBtn.addEventListener('click', init);
+    init();
+  </script>
+</body>
+</html>
