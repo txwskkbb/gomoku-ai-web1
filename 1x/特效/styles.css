@@ -1,0 +1,85 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+  font-family: "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+}
+
+.stage-shell {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 52% 42%, rgba(255, 214, 118, 0.08), transparent 24%),
+    radial-gradient(circle at 48% 56%, rgba(65, 197, 210, 0.05), transparent 34%),
+    #000;
+}
+
+#effect-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+
+#effect-canvas:active {
+  cursor: grabbing;
+}
+
+.image-picker {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+select {
+  width: 148px;
+  min-height: 36px;
+  padding: 0 34px 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  appearance: none;
+  color: rgba(255, 255, 255, 0.88);
+  font: 600 13px "Avenir Next", "Helvetica Neue", "PingFang SC", sans-serif;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.86) 50%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86) 50%, transparent 50%),
+    linear-gradient(rgba(13, 13, 13, 0.72), rgba(13, 13, 13, 0.72));
+  background-position:
+    calc(100% - 17px) 15px,
+    calc(100% - 11px) 15px,
+    0 0;
+  background-size: 6px 6px, 6px 6px, 100% 100%;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(14px);
+}
+
+@media (max-width: 640px) {
+  .image-picker {
+    top: 12px;
+    right: 12px;
+  }
+
+  select {
+    width: 132px;
+    min-height: 34px;
+    font-size: 12px;
+  }
+}

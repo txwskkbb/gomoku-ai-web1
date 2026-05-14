@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>寻纹归迹 | 探艺纹样</title>
+    <meta name="description" content="鱼灯交互原型的纹样页，独立 HTML 版本。" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="immersive-page">
+    <svg class="svg-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="fish-body-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fdf2ff" />
+          <stop offset="35%" stop-color="#ff91d9" />
+          <stop offset="70%" stop-color="#a5ffd9" />
+          <stop offset="100%" stop-color="#63f4dc" />
+        </linearGradient>
+        <linearGradient id="fish-fin-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff4db8" />
+          <stop offset="100%" stop-color="#e3fff6" />
+        </linearGradient>
+        <radialGradient id="fish-eye-gradient" cx="50%" cy="50%" r="65%">
+          <stop offset="0%" stop-color="#fbf3ff" />
+          <stop offset="100%" stop-color="#ff78ce" />
+        </radialGradient>
+        <symbol id="fish-lantern" viewBox="0 0 420 220">
+          <g fill="none" fill-rule="evenodd">
+            <path d="M334 109c20-8 44 8 48 18-10 7-31 15-48 11-11-3-19-2-31 5-44 26-119 45-196 12-21-9-37-22-42-35 6-20 23-38 47-47 76-30 164-17 213 10 7 4 11 5 17 5 6 0 13-2 24-9 10-6 23-6 32 0-8 5-12 12-12 18 0 7 4 12 12 12z" fill="url(#fish-body-gradient)" opacity="0.88" stroke="#ffe4ff" stroke-width="5" />
+            <path d="M318 78c19-11 39-28 42-42 17 20 24 41 20 55-17-4-34-7-62 2z" fill="url(#fish-fin-gradient)" opacity="0.95" stroke="#ff7cd5" stroke-width="4" />
+            <path d="M320 146c18 8 35 26 40 42 15-17 18-34 16-47-18-1-32-1-56 5z" fill="url(#fish-fin-gradient)" opacity="0.95" stroke="#79ffd7" stroke-width="4" />
+            <path d="M107 72c-20 10-33 31-33 58 0 18 5 31 15 44-16-1-28 3-38 11-4-14-4-38 3-56 8-19 24-33 53-44z" fill="#ff4fb5" opacity="0.7" />
+            <path d="M140 51c23-16 66-24 109-18-21 11-33 26-33 42-40-12-73-6-76-24-1-6-1-1 0 0z" fill="#ff55bf" opacity="0.5" />
+            <path d="M205 45c8 7 12 20 8 31 28-5 54 0 75 12-8-25-32-42-83-43z" fill="#92ffd6" opacity="0.4" />
+            <circle cx="125" cy="108" r="22" fill="url(#fish-eye-gradient)" stroke="#fff0ff" stroke-width="5" />
+            <circle cx="125" cy="108" r="8" fill="#1e0d28" />
+            <path d="M86 103c-8 4-15 11-21 21" stroke="#fff3fb" stroke-width="5" stroke-linecap="round" opacity="0.72" />
+            <path d="M80 95c-11 0-21 6-31 16" stroke="#ff74cc" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M79 129c-9 3-18 10-25 20" stroke="#79ffd7" stroke-width="3.5" stroke-linecap="round" />
+            <g stroke="#ffe0ff" stroke-width="4" stroke-linecap="round" opacity="0.8">
+              <path d="M178 73c15-16 33-19 51-17" />
+              <path d="M212 75c15-13 34-14 51-9" />
+              <path d="M251 83c14-9 31-8 44-2" />
+              <path d="M163 99c18-14 37-16 56-10" />
+              <path d="M205 101c17-11 36-10 53-3" />
+              <path d="M253 104c14-7 28-4 40 1" />
+              <path d="M157 126c16-12 35-13 53-8" />
+              <path d="M196 129c17-10 34-10 48-4" />
+              <path d="M239 132c13-7 27-6 39-1" />
+            </g>
+            <g stroke="#ff51b4" stroke-width="3" opacity="0.6">
+              <path d="M149 76c6 18 6 66 0 91" />
+              <path d="M185 66c4 27 4 84 0 104" />
+              <path d="M223 61c2 32 2 92 0 107" />
+              <path d="M261 69c0 28 0 78 0 95" />
+              <path d="M296 84c-2 18-2 50 0 67" />
+            </g>
+            <path d="M319 102c9 4 15 10 23 21" stroke="#fff3fb" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+            <path d="M286 55c10-14 23-22 36-26" stroke="#7cffd9" stroke-width="3" stroke-linecap="round" />
+            <path d="M292 166c10 15 23 24 35 28" stroke="#ff63c0" stroke-width="3" stroke-linecap="round" />
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="返回多页首页">
+          <span class="brand-mark">纹</span>
+          <span class="brand-copy">
+            <strong>寻纹归迹</strong>
+            <small>ITRACE TO ORIGIN</small>
+          </span>
+        </a>
+        <nav class="site-nav">
+          <a href="./index.html">开场</a>
+          <a href="./origin-history.html">溯源</a>
+          <a class="is-current" href="./craft-motifs.html">探艺</a>
+          <a href="./dance-stage.html">纹韵</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="section experience" data-reveal>
+          <div class="section-heading">
+            <span class="section-index">04</span>
+            <div>
+              <p class="eyebrow">CRAFT PAGE / MOTIF BOARD</p>
+              <h2>纹样主板、工作台和侧边详情，现在都是这张独立页面的内容。</h2>
+            </div>
+          </div>
+
+          <article class="prototype-intro glass-card reveal-item is-visible">
+            <p class="card-kicker">当前页</p>
+            <h3>这里承接原视频里更像“展板拼贴”的那一屏。</h3>
+            <p>页间切换已经独立；纹样按钮在这页里继续保留为板块索引，维持原本的浏览节奏。</p>
+            <div class="page-card-actions">
+              <a class="button button-primary" href="./craft-process.html">去制作过程</a>
+              <a class="button button-ghost" href="./origin-customs.html">回习俗页</a>
+            </div>
+          </article>
+
+          <div class="app-window reveal-item is-visible">
+            <div class="app-topbar">
+              <a class="app-home" href="./index.html" aria-label="返回入口页">
+                <span class="app-home-mark">纹</span>
+                <span class="app-home-copy">
+                  <strong>寻纹归迹</strong>
+                  <small>ITRACE TO ORIGIN</small>
+                </span>
+              </a>
+
+              <div class="app-tabs" aria-label="主页面切换">
+                <a class="app-tab" href="./origin-history.html">溯·源</a>
+                <a class="app-tab is-active" href="./craft-motifs.html">探·艺</a>
+                <a class="app-tab" href="./dance-stage.html">纹·韵</a>
+              </div>
+
+              <div class="app-lights" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="app-viewport">
+              <section class="proto-screen screen-craft is-active">
+                <aside class="screen-rail" aria-label="探艺子页面">
+                  <a class="rail-tab is-active" href="./craft-motifs.html">纹样</a>
+                  <a class="rail-tab" href="./craft-process.html">工序</a>
+                </aside>
+
+                <div class="screen-inner">
+                  <div class="screen-copy">
+                    <div>
+                      <p class="card-kicker">探·艺 / CRAFT</p>
+                      <h3>纹以载道，穿在身上的无字史书。</h3>
+                    </div>
+                    <div class="screen-copy-actions">
+                      <a class="button button-ghost" href="./craft-process.html">切到工序页</a>
+                    </div>
+                  </div>
+
+                  <div class="craft-view is-active">
+                    <div class="craft-motifs-layout">
+                      <article class="craft-collage glass-panel">
+                        <div class="craft-collage-head">
+                          <div>
+                            <p class="card-kicker">飞鸟与灵</p>
+                            <h4>鸟、蝴蝶、龙、花草——每一道纹样都是苗族先民对天地的理解、对祖先的追忆、对生命的祈愿。</h4>
+                          </div>
+                          <div class="mini-tabs">
+                            <span>溯·源</span>
+                            <span>探·艺</span>
+                            <span>纹·韵</span>
+                          </div>
+                        </div>
+
+                        <div class="collage-canvas">
+                          <div class="collage-scene">
+                            <div class="collage-table">
+                              <div class="motif-video-shell">
+                                <video
+                                  class="motif-video"
+                                  id="motif-video"
+                                  playsinline
+                                  preload="metadata"
+                                  
+                                ></video>
+                                <div class="motif-video-placeholder" id="motif-video-placeholder">
+                                  点击下方纹样按钮切换视频
+                                </div>
+                              </div>
+                              <p id="motif-description">百鸟衣的灵魂图腾，象征祖先的羽翼与通天的神力。</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="motif-picker">
+                          <button class="motif-button is-active" type="button" data-motif-key="鸟纹">鸟纹</button>
+                          <button class="motif-button" type="button" data-motif-key="蝴蝶纹">蝴蝶纹</button>
+                          <button class="motif-button" type="button" data-motif-key="龙纹">龙纹</button>
+                          <button class="motif-button" type="button" data-motif-key="鱼纹">鱼纹</button>
+                          <button class="motif-button" type="button" data-motif-key="花草纹">花草纹</button>
+                          <button class="motif-button motif-random" type="button" data-motif-key="纹样总览">纹样总览</button>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="app-dock">
+              <a class="dock-item" href="./index.html">开场</a>
+              <a class="dock-item" href="./origin-history.html">溯源</a>
+              <a class="dock-item is-active" href="./craft-motifs.html">探艺</a>
+              <a class="dock-item" href="./dance-stage.html">纹韵</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>纹样页已经拆成单独 HTML。</p>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

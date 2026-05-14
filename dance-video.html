@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>寻纹归迹 | 展示页</title>
+    <meta name="description" content="鱼灯交互原型的点击打开页，独立 HTML 版本。" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="immersive-page">
+    <svg class="svg-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="fish-body-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fdf2ff" />
+          <stop offset="35%" stop-color="#ff91d9" />
+          <stop offset="70%" stop-color="#a5ffd9" />
+          <stop offset="100%" stop-color="#63f4dc" />
+        </linearGradient>
+        <linearGradient id="fish-fin-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#ff4db8" />
+          <stop offset="100%" stop-color="#e3fff6" />
+        </linearGradient>
+        <radialGradient id="fish-eye-gradient" cx="50%" cy="50%" r="65%">
+          <stop offset="0%" stop-color="#fbf3ff" />
+          <stop offset="100%" stop-color="#ff78ce" />
+        </radialGradient>
+        <symbol id="fish-lantern" viewBox="0 0 420 220">
+          <g fill="none" fill-rule="evenodd">
+            <path d="M334 109c20-8 44 8 48 18-10 7-31 15-48 11-11-3-19-2-31 5-44 26-119 45-196 12-21-9-37-22-42-35 6-20 23-38 47-47 76-30 164-17 213 10 7 4 11 5 17 5 6 0 13-2 24-9 10-6 23-6 32 0-8 5-12 12-12 18 0 7 4 12 12 12z" fill="url(#fish-body-gradient)" opacity="0.88" stroke="#ffe4ff" stroke-width="5" />
+            <path d="M318 78c19-11 39-28 42-42 17 20 24 41 20 55-17-4-34-7-62 2z" fill="url(#fish-fin-gradient)" opacity="0.95" stroke="#ff7cd5" stroke-width="4" />
+            <path d="M320 146c18 8 35 26 40 42 15-17 18-34 16-47-18-1-32-1-56 5z" fill="url(#fish-fin-gradient)" opacity="0.95" stroke="#79ffd7" stroke-width="4" />
+            <path d="M107 72c-20 10-33 31-33 58 0 18 5 31 15 44-16-1-28 3-38 11-4-14-4-38 3-56 8-19 24-33 53-44z" fill="#ff4fb5" opacity="0.7" />
+            <path d="M140 51c23-16 66-24 109-18-21 11-33 26-33 42-40-12-73-6-76-24-1-6-1-1 0 0z" fill="#ff55bf" opacity="0.5" />
+            <path d="M205 45c8 7 12 20 8 31 28-5 54 0 75 12-8-25-32-42-83-43z" fill="#92ffd6" opacity="0.4" />
+            <circle cx="125" cy="108" r="22" fill="url(#fish-eye-gradient)" stroke="#fff0ff" stroke-width="5" />
+            <circle cx="125" cy="108" r="8" fill="#1e0d28" />
+            <path d="M86 103c-8 4-15 11-21 21" stroke="#fff3fb" stroke-width="5" stroke-linecap="round" opacity="0.72" />
+            <path d="M80 95c-11 0-21 6-31 16" stroke="#ff74cc" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M79 129c-9 3-18 10-25 20" stroke="#79ffd7" stroke-width="3.5" stroke-linecap="round" />
+            <g stroke="#ffe0ff" stroke-width="4" stroke-linecap="round" opacity="0.8">
+              <path d="M178 73c15-16 33-19 51-17" />
+              <path d="M212 75c15-13 34-14 51-9" />
+              <path d="M251 83c14-9 31-8 44-2" />
+              <path d="M163 99c18-14 37-16 56-10" />
+              <path d="M205 101c17-11 36-10 53-3" />
+              <path d="M253 104c14-7 28-4 40 1" />
+              <path d="M157 126c16-12 35-13 53-8" />
+              <path d="M196 129c17-10 34-10 48-4" />
+              <path d="M239 132c13-7 27-6 39-1" />
+            </g>
+            <g stroke="#ff51b4" stroke-width="3" opacity="0.6">
+              <path d="M149 76c6 18 6 66 0 91" />
+              <path d="M185 66c4 27 4 84 0 104" />
+              <path d="M223 61c2 32 2 92 0 107" />
+              <path d="M261 69c0 28 0 78 0 95" />
+              <path d="M296 84c-2 18-2 50 0 67" />
+            </g>
+            <path d="M319 102c9 4 15 10 23 21" stroke="#fff3fb" stroke-width="4" stroke-linecap="round" opacity="0.8" />
+            <path d="M286 55c10-14 23-22 36-26" stroke="#7cffd9" stroke-width="3" stroke-linecap="round" />
+            <path d="M292 166c10 15 23 24 35 28" stroke="#ff63c0" stroke-width="3" stroke-linecap="round" />
+          </g>
+        </symbol>
+      </defs>
+    </svg>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="返回多页首页">
+          <span class="brand-mark">纹</span>
+          <span class="brand-copy">
+            <strong>寻纹归迹</strong>
+            <small>ITRACE TO ORIGIN</small>
+          </span>
+        </a>
+        <nav class="site-nav">
+          <a href="./index.html">开场</a>
+          <a href="./origin-history.html">溯源</a>
+          <a href="./craft-motifs.html">探艺</a>
+          <a class="is-current" href="./dance-video.html">纹韵</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="section experience" data-reveal>
+          <div class="section-heading">
+            <span class="section-index">08</span>
+            <div>
+              <p class="eyebrow">CLICK PAGE / OPENED FROM POSTER</p>
+              <h2>原来那种“点海报后打开”的页面，也已经拆成了独立 HTML。</h2>
+            </div>
+          </div>
+
+          <article class="prototype-intro glass-card reveal-item is-visible">
+            <p class="card-kicker">当前页</p>
+            <h3>这页对应原本的点击打开态，现在不再是弹层，而是实际页面。</h3>
+            <p>这样你从舞鱼灯页点进来，浏览器地址和页面层级都会真实变化，更符合多页结构。</p>
+            <div class="page-card-actions">
+              <a class="button button-primary" href="./dance-stage.html">回舞鱼灯</a>
+              <a class="button button-ghost" href="./dance-capture.html">去留影</a>
+            </div>
+          </article>
+
+          <div class="app-window reveal-item is-visible">
+            <div class="app-topbar">
+              <a class="app-home" href="./index.html" aria-label="返回入口页">
+                <span class="app-home-mark">纹</span>
+                <span class="app-home-copy">
+                  <strong>寻纹归迹</strong>
+                  <small>ITRACE TO ORIGIN</small>
+                </span>
+              </a>
+
+              <div class="app-tabs" aria-label="主页面切换">
+                <a class="app-tab" href="./origin-history.html">溯·源</a>
+                <a class="app-tab" href="./craft-motifs.html">探·艺</a>
+                <a class="app-tab is-active" href="./dance-video.html">纹·韵</a>
+              </div>
+
+              <div class="app-lights" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="app-viewport">
+              <section class="proto-screen screen-dance is-active">
+                <aside class="screen-rail" aria-label="舞韵子页面">
+                  <a class="rail-tab" href="./dance-stage.html">粒子</a>
+                  <a class="rail-tab is-active" href="./dance-video.html">展示页</a>
+                </aside>
+
+                <div class="screen-inner">
+                  <div class="screen-copy">
+                    <div>
+                      <p class="card-kicker">纹·韵 / DANCE</p>
+                      <h3>点击海报后进入的专属页面，现在是独立文件，不再依附在某个单页弹层里。</h3>
+                    </div>
+                    <div class="screen-copy-actions">
+                      <a class="button button-ghost" href="./dance-stage.html">返回舞台</a>
+                    </div>
+                  </div>
+
+                  <div class="app-modal-card video-page-card">
+                    <div class="video-stage" aria-hidden="true">
+                      <div class="video-firework firework-a"></div>
+                      <div class="video-firework firework-b"></div>
+                      <div class="video-firework firework-c"></div>
+                      <svg class="fish video-fish video-fish-a"><use href="#fish-lantern"></use></svg>
+                      <svg class="fish video-fish video-fish-b"><use href="#fish-lantern"></use></svg>
+                      <svg class="fish video-fish video-fish-c"><use href="#fish-lantern"></use></svg>
+                      <div class="video-title">纹·韵</div>
+                    </div>
+
+                    <div class="video-caption">
+                      <p class="card-kicker">点击打开页</p>
+                      <h3>灯群入夜，火花与鼓点一起抬高气氛</h3>
+                      <p>这里对应原视频里点击后展开的页面。现在它是一张 HTML，。</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="app-dock">
+              <a class="dock-item" href="./index.html">开场</a>
+              <a class="dock-item" href="./origin-history.html">溯源</a>
+              <a class="dock-item" href="./craft-motifs.html">探艺</a>
+              <a class="dock-item is-active" href="./dance-video.html">纹韵</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>点击打开页也已独立完成。至此，视频里主要切换页和点击页都已经拆成真实 HTML。</p>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

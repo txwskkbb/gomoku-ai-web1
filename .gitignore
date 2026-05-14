@@ -1,0 +1,9 @@
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+node_modules/
+.DS_Store
+dist/
+build/
