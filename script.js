@@ -297,45 +297,45 @@ if (captureButton && memoryFish && memoryCaption && memoryMeta) {
 }
 
 const customsVideoMap = {
-  "鼓藏节": "./习俗/视频/鼓藏节.mp4",
-  "苗年": "./习俗/视频/苗年.mp4",
-  "古瓢舞": "./习俗/视频/古瓢舞.mp4",
-  "婚嫁习俗": "./习俗/视频/婚嫁习俗.mp4",
+  "鼓藏节": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/视频/鼓藏节.mp4",
+  "苗年": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/视频/苗年.mp4",
+  "古瓢舞": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/视频/古瓢舞.mp4",
+  "婚嫁习俗": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/视频/婚嫁习俗.mp4",
 };
 
 const motifData = {
   "鸟纹": {
-    video: "./纹样/鸟纹.mp4",
+    video: "https://my-websitearius.oss-cn-beijing.aliyuncs.com/纹样/鸟纹.mp4",
     text: "百鸟衣的灵魂图腾，象征祖先的羽翼与通天的神力。",
   },
   "蝴蝶纹": {
-    video: "./纹样/蝴蝶纹.mp4",
+    video: "https://my-websitearius.oss-cn-beijing.aliyuncs.com/纹样/蝴蝶纹.mp4",
     text: "苗族的创世之母，万物由她孵化，生命由此开始。",
   },
   "龙纹": {
-    video: "./纹样/龙纹.mp4",
+    video: "https://my-websitearius.oss-cn-beijing.aliyuncs.com/纹样/龙纹.mp4",
     text: "守护水与丰收的善龙，不同于汉族的威严，苗龙更亲切灵动。",
   },
   "鱼纹": {
-    video: "./纹样/鱼纹.mp4",
+    video: "https://my-websitearius.oss-cn-beijing.aliyuncs.com/纹样/鱼纹.mp4",
     text: "繁衍与富足的象征，多子多福的朴素愿望。",
   },
   "花草纹": {
-    video: "./纹样/花草纹.mp4",
+    video: "https://my-websitearius.oss-cn-beijing.aliyuncs.com/纹样/花草纹.mp4",
     text: "山野间的生命力，是苗人栖居的土地之诗。",
   },
   "纹样总览": {
-    video: "./纹样/纹样总览.mp4",
+    video: "https://my-websitearius.oss-cn-beijing.aliyuncs.com/纹样/纹样总览.mp4",
     text: "光明与方向的标记，指引灵魂回归东方故土。",
   },
 };
 
 const processVideoMap = {
-  "种棉纺纱": "./工序/种棉纺纱.mp4",
-  "织布": "./工序/织布.mp4",
-  "蚕丝绣片": "./工序/蚕丝绣片.mp4",
-  "染布": "./工序/染布.mp4",
-  "成衣": "./工序/成衣.mp4",
+  "种棉纺纱": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/工序/种棉纺纱.mp4",
+  "织布": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/工序/织布.mp4",
+  "蚕丝绣片": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/工序/蚕丝绣片.mp4",
+  "染布": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/工序/染布.mp4",
+  "成衣": "https://my-websitearius.oss-cn-beijing.aliyuncs.com/工序/成衣.mp4",
 };
 
 function setVideoSource(video, src) {
